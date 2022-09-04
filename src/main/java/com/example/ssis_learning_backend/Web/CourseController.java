@@ -1,7 +1,6 @@
 package com.example.ssis_learning_backend.Web;
 
 import com.example.ssis_learning_backend.Model.entities.Course;
-import com.example.ssis_learning_backend.Model.entities.Lecture;
 import com.example.ssis_learning_backend.Service.CourseService;
 import org.springframework.web.bind.annotation.*;
 

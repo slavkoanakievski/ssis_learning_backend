@@ -1,7 +1,9 @@
 package com.example.ssis_learning_backend.Model.config;
 
 import com.example.ssis_learning_backend.Model.entities.Course;
+import com.example.ssis_learning_backend.Model.entities.Quiz;
 import com.example.ssis_learning_backend.Repository.CourseRepository;
+import com.example.ssis_learning_backend.Repository.QuizRepository;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -13,9 +15,11 @@ import java.util.List;
 public class DataInitializer {
 
     private final CourseRepository courseRepository;
+    private final QuizRepository quizRepository;
 
-    public DataInitializer(CourseRepository courseRepository) {
+    public DataInitializer(CourseRepository courseRepository, QuizRepository quizRepository) {
         this.courseRepository = courseRepository;
+        this.quizRepository = quizRepository;
     }
 
     public static byte[] hexStringToByteArray(String s) {
@@ -38,5 +42,16 @@ public class DataInitializer {
         this.courseRepository.save(new Course("Conditional split", "Microsoft SSIS", "Средно", "2h", LocalDateTime.now(), "Применуваме различни логики на податоците во табелите на SQL Server за да ги исполниме барањата на крајните корисници.\n" +
                 "SSIS секогаш доаѓа при рака во такви ситуации и ни обезбедува решение со минимална сложеност.  Можеме да го користиме и за да подготвиме излез во различни формати без да пишуваме сложени програмски кодови.", "3.4", 55,List.of("Conditional split дел 1--1h", "Conditional split дел 2--1h")));
         this.courseRepository.save(new Course("Креирање целосен ETL процес", "Microsoft SSIS", "Експерт", "5h",LocalDateTime.now(), "ETL, што значи извлекување, трансформација и вчитување, е процес на интеграција на податоци кој комбинира податоци од повеќе извори на податоци во единствена, конзистентна продавница на податоци што се вчитува во складиште на податоци или друг целен систем.", "5", 200,List.of("Што е ETL?--1h", "Традиционален ETL процес--1h", "Data Warehouse ETL процес--3h")));
+
+
+
+        this.quizRepository.save(new Quiz("Квиз за основи на Microsoft SSIS", "Почетник", LocalDateTime.now(), "20 минути", "A112345", "Microsoft SSIS", "Овој квиз ги опфаќа основните концепти на алатката Microsoft SSIS. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+        this.quizRepository.save(new Quiz("Квиз за компоненти во Microsoft SSIS", "Почетник", LocalDateTime.now(), "25 минути", "B113255", "Microsoft SSIS", "Овој квиз ги опфаќа основите за компоненти во SSIS. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+        this.quizRepository.save(new Quiz("Квиз за променливи во Microsoft SSIS", "Средно", LocalDateTime.now(), "20 минути", "B864821", "Microsoft SSIS", "Овој квиз ги опфаќа основите за променливи во SSIS. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+        this.quizRepository.save(new Quiz("Квиз за основни трансформации", "Средно", LocalDateTime.now(), "30 минути", "A321821", "Microsoft SSIS", "Овој квиз ги опфаќа основите за променливи во SSIS. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+        this.quizRepository.save(new Quiz("Квиз за компонентата Conditional split", "Експерт", LocalDateTime.now(), "25 минути", "A992311", "Microsoft SSIS", "Овој квиз го опфаќа материјалот за компонентата Conditional Split. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+        this.quizRepository.save(new Quiz("Квиз за Еxtract,Transform, Load целосен процес", "Експерт", LocalDateTime.now(), "40 минути", "A992311", "Microsoft SSIS", "Овој квиз го опфаќа целосниот процес за ETL. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
+
+
     }
 }
