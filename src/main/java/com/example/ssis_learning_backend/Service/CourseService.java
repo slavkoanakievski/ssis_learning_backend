@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface CourseService {
     List<Course> findAll();
 
-    Optional<Course> findById(Long id);
+    Course findById(Long id);
 }

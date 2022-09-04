@@ -3,10 +3,7 @@ package com.example.ssis_learning_backend.Web;
 import com.example.ssis_learning_backend.Model.entities.Course;
 import com.example.ssis_learning_backend.Model.entities.Lecture;
 import com.example.ssis_learning_backend.Service.CourseService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +20,11 @@ public class CourseController {
     @GetMapping
     public List<Course> getAllCourses() {
         return this.courseService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Course getCourse(@PathVariable Long id) {
+        return this.courseService.findById(id);
     }
 
 

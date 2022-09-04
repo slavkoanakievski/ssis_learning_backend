@@ -6,6 +6,7 @@ import com.example.ssis_learning_backend.Service.CourseService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -23,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Optional<Course> findById(Long id) {
-        return this.courseRepository.findById(id);
+    public Course findById(Long id) {
+        return this.courseRepository.findById(id).orElseThrow(()->new NoSuchElementException());
     }
 }
