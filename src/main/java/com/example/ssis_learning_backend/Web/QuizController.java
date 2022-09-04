@@ -26,4 +26,5 @@ public class QuizController {
     public Quiz getCourse(@PathVariable Long id) {
         return this.quizService.findById(id);
     }
+
 }

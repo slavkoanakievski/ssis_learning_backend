@@ -5,7 +5,6 @@ import com.example.ssis_learning_backend.Model.entities.QuestionForum;
 
 import java.util.List;
 
-public interface QuestionService {
+public interface QuestionForumService {
     List<QuestionForum> findAll();
-    QuestionForum findById();
 }

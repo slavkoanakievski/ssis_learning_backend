@@ -31,9 +31,10 @@ public class QuestionForum {
     private List<String> answers;
 
 
-    public QuestionForum(String questionForumText, LocalDateTime datePosted) {
+    public QuestionForum(String questionForumText, LocalDateTime datePosted, List<String> answers) {
         this.questionForumText = questionForumText;
         this.datePosted = datePosted;
+        this.answers = answers;
     }
 
     public QuestionForum() {

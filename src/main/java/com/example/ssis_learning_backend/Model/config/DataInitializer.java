@@ -1,13 +1,16 @@
 package com.example.ssis_learning_backend.Model.config;
 
 import com.example.ssis_learning_backend.Model.entities.Course;
+import com.example.ssis_learning_backend.Model.entities.QuestionForum;
 import com.example.ssis_learning_backend.Model.entities.Quiz;
 import com.example.ssis_learning_backend.Repository.CourseRepository;
+import com.example.ssis_learning_backend.Repository.QuestionForumRepository;
 import com.example.ssis_learning_backend.Repository.QuizRepository;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -16,10 +19,12 @@ public class DataInitializer {
 
     private final CourseRepository courseRepository;
     private final QuizRepository quizRepository;
+    private final QuestionForumRepository questionForumRepository;
 
-    public DataInitializer(CourseRepository courseRepository, QuizRepository quizRepository) {
+    public DataInitializer(CourseRepository courseRepository, QuizRepository quizRepository, QuestionForumRepository questionForumRepository) {
         this.courseRepository = courseRepository;
         this.quizRepository = quizRepository;
+        this.questionForumRepository = questionForumRepository;
     }
 
     public static byte[] hexStringToByteArray(String s) {
@@ -52,6 +57,10 @@ public class DataInitializer {
         this.quizRepository.save(new Quiz("Квиз за компонентата Conditional split", "Експерт", LocalDateTime.now(), "25 минути", "A992311", "Microsoft SSIS", "Овој квиз го опфаќа материјалот за компонентата Conditional Split. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
         this.quizRepository.save(new Quiz("Квиз за Еxtract,Transform, Load целосен процес", "Експерт", LocalDateTime.now(), "40 минути", "A992311", "Microsoft SSIS", "Овој квиз го опфаќа целосниот процес за ETL. За да го полагате квизот потребно е да ги имате поминато првите три лекции за Microsoft SSIS.", "Квизот е составен од прашања на заокружување, во одговорите можно е да има и повеќе точни одговори или само еден точен одговор"));
 
+
+        this.questionForumRepository.save(new QuestionForum("Како може да се креира проект за да почнеме со работа?", LocalDateTime.now(), List.of("File->New Project->New Integration services Project. На овој начин ќе креираш проект--Можеш и преку command line, но така е покомплицирано.") ));
+        this.questionForumRepository.save(new QuestionForum("Која компонента да ја искористам за да спојам две табели?", LocalDateTime.now(), List.of("За ова се користи компонентта LookUp. Работи идентично како join во SQL.") ));
+        this.questionForumRepository.save(new QuestionForum("Следниов линк има многу корисни материјали за ETL процес. Погледнете го: https://www.stitchdata.com/etldatabase/etl-process/", LocalDateTime.now(), Collections.emptyList()));
 
     }
 }
