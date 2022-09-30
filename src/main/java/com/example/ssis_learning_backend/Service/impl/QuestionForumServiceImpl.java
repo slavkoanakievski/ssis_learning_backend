@@ -1,6 +1,7 @@
 package com.example.ssis_learning_backend.Service.impl;
 
 import com.example.ssis_learning_backend.Model.entities.QuestionForum;
+import com.example.ssis_learning_backend.Model.entities.QuestionForumResourceDto;
 import com.example.ssis_learning_backend.Repository.QuestionForumRepository;
 import com.example.ssis_learning_backend.Service.QuestionForumService;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,8 @@ public class QuestionForumServiceImpl implements QuestionForumService {
     }
 
     @Override
-    public void addCommunityLink(QuestionForum questionForum) {
-        this.questionForumRepository.save(new QuestionForum(questionForum.getQuestionForumText(), LocalDateTime.now(), Collections.emptyList()));
+    public void addCommunityLink(QuestionForumResourceDto questionForum) {
+        this.questionForumRepository.save(new QuestionForum(questionForum.getQuestionText(), LocalDateTime.now(), Collections.emptyList()));
     }
 
 }

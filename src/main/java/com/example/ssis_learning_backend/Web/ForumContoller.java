@@ -1,6 +1,7 @@
 package com.example.ssis_learning_backend.Web;
 
 import com.example.ssis_learning_backend.Model.entities.QuestionForum;
+import com.example.ssis_learning_backend.Model.entities.QuestionForumResourceDto;
 import com.example.ssis_learning_backend.Model.entities.Quiz;
 import com.example.ssis_learning_backend.Service.QuestionForumService;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,8 @@ public class ForumContoller {
     }
 
     @PostMapping("/addQuestion")
-    public void addCommunityLink(@RequestBody QuestionForum communityLinkResource) {
-        this.questionForumService.addCommunityLink(communityLinkResource);
+    public void addCommunityLink(@RequestBody QuestionForumResourceDto questionForumResourceDto ) {
+        this.questionForumService.addCommunityLink(questionForumResourceDto);
     }
 }
 
