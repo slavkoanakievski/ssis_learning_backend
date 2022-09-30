@@ -9,5 +9,5 @@ import java.util.List;
 public interface QuestionForumService {
     List<QuestionForum> findAll();
 
-    void addCommunityLink(QuestionForumResourceDto questionForum);
+    QuestionForum addCommunityLink(QuestionForumResourceDto questionForum);
 }

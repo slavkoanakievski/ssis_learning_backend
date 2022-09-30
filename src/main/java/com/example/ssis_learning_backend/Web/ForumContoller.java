@@ -24,8 +24,8 @@ public class ForumContoller {
     }
 
     @PostMapping("/addQuestion")
-    public void addCommunityLink(@RequestBody QuestionForumResourceDto questionForumResourceDto ) {
-        this.questionForumService.addCommunityLink(questionForumResourceDto);
+    public QuestionForum addCommunityLink(@RequestBody QuestionForumResourceDto questionForumResourceDto ) {
+        return this.questionForumService.addCommunityLink(questionForumResourceDto);
     }
 }
 

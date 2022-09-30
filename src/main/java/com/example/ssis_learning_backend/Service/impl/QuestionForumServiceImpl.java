@@ -25,8 +25,10 @@ public class QuestionForumServiceImpl implements QuestionForumService {
     }
 
     @Override
-    public void addCommunityLink(QuestionForumResourceDto questionForum) {
-        this.questionForumRepository.save(new QuestionForum(questionForum.getQuestionText(), LocalDateTime.now(), Collections.emptyList()));
+    public QuestionForum addCommunityLink(QuestionForumResourceDto questionForum) {
+        QuestionForum questionForum1 = new QuestionForum(questionForum.getQuestionText(), LocalDateTime.now(), Collections.emptyList());
+        this.questionForumRepository.save(questionForum1);
+        return questionForum1;
     }
 
 }
