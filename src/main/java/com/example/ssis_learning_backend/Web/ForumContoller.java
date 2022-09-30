@@ -3,10 +3,7 @@ package com.example.ssis_learning_backend.Web;
 import com.example.ssis_learning_backend.Model.entities.QuestionForum;
 import com.example.ssis_learning_backend.Model.entities.Quiz;
 import com.example.ssis_learning_backend.Service.QuestionForumService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,10 @@ public class ForumContoller {
         return this.questionForumService.findAll();
     }
 
+    @PostMapping("/addQuestion")
+    public void addCommunityLink(@RequestBody QuestionForum communityLinkResource) {
+        this.questionForumService.addCommunityLink(communityLinkResource);
+    }
 }
+
+

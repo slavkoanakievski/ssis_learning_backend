@@ -39,4 +39,8 @@ public class QuestionForum {
 
     public QuestionForum() {
     }
+
+    public String getFormattedDatePosted() {
+        return DateTimeFormatter.ofPattern(DATE_FORMATTER).format(this.datePosted) + ", "+ this.datePosted.getDayOfWeek();
+    }
 }

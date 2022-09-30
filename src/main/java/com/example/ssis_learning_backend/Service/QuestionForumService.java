@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface QuestionForumService {
     List<QuestionForum> findAll();
+
+    void addCommunityLink(QuestionForum questionForum);
 }
